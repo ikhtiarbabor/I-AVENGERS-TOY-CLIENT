@@ -32,6 +32,8 @@ const Login = () => {
                     type='text'
                     placeholder='email'
                     className='input input-bordered'
+                    name='email'
+                    required
                   />
                 </div>
                 <div className='form-control'>
@@ -39,9 +41,11 @@ const Login = () => {
                     <span className='label-text'>Password</span>
                   </label>
                   <input
-                    type='text'
+                    type='password'
                     placeholder='password'
                     className='input input-bordered'
+                    name='password'
+                    required
                   />
                   <label className='label'>
                     <p>

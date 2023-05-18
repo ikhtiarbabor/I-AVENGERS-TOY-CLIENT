@@ -25,9 +25,20 @@ const Header = () => {
               <NavLink to='/' className='mx-2'>
                 Home
               </NavLink>
+
               <NavLink className='mx-2' to='/allToys' tabIndex={0}>
                 All Toys
               </NavLink>
+              {user && (
+                <NavLink to='/myToys' className='mx-2'>
+                  My Toys
+                </NavLink>
+              )}
+              {user && (
+                <NavLink to='/addToys' className='mx-2'>
+                  Add Toys
+                </NavLink>
+              )}
               <NavLink className='mx-2' to='/blog' tabIndex={0}>
                 Blog
               </NavLink>
@@ -49,6 +60,16 @@ const Header = () => {
             <NavLink className='mx-2' to='/allToys' tabIndex={0}>
               All Toys
             </NavLink>
+            {user && (
+              <NavLink to='/myToys' className='mx-2'>
+                My Toys
+              </NavLink>
+            )}
+            {user && (
+              <NavLink to='/addToys' className='mx-2'>
+                Add Toys
+              </NavLink>
+            )}
             <NavLink className='mx-2' to='/blog' tabIndex={0}>
               Blog
             </NavLink>
