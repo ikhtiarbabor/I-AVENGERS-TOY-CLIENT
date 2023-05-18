@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Marvel', sans-serif;
+}
+.active {
+  border-bottom: 2px solid #ec1d24;
+  font-weight: 700;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.roboto-font {
+  font-family: 'Roboto Condensed', sans-serif;
+}

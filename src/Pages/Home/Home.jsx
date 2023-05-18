@@ -1,12 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import Header from '../../utilities/shared/Header/Header';
+import Footer from '../../utilities/shared/Footer/Footer';
 
 const Home = () => {
-    return (
-        <div>
-          this is home  
-          <Outlet></Outlet>
-        </div>
-    );
+  return (
+    <>
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </>
+  );
 };
 
 export default Home;
