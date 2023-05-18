@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <>
       <Header></Header>
-      <Outlet></Outlet>
+      <section className='outletMinW'>
+        <Outlet></Outlet>
+      </section>
       <Footer></Footer>
     </>
   );

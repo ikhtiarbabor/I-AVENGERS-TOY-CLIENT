@@ -14,3 +14,19 @@
 .roboto-font {
   font-family: 'Roboto Condensed', sans-serif;
 }
+@layer components {
+  .allContainer {
+    @apply max-w-7xl mx-auto px-5 md:px-0;
+  }
+}
+.footBg {
+  background: url(https://media.comicbook.com/wp-content/uploads/2012/04/avengers_background_8.jpg);
+  background-color: rgba(0, 0, 0, 0.6);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+/*todo */
+.outletMinW {
+  min-height: calc(100vh-30px) !important;
+}
