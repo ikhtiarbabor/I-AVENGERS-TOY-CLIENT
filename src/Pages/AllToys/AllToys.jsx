@@ -30,18 +30,19 @@ const AllToys = () => {
   };
   const handleSearch = (e) => {
     console.log(e.target.value);
-    setUrl(`http://localhost:5000/allToys?search=${e.target.value}`);
-    console.log(`http://localhost:5000/allToys?search=${e.target.value}`);
+    setUrl(
+      `https://i-avengers-toy-server.vercel.app/allToys?search=${e.target.value}`
+    );
   };
   return (
     <>
       <CategoryBanner>all toys</CategoryBanner>
       <section className='allContainer py-10'>
-        <div>
+        <div className='flex justify-end'>
           <input
             type='text'
-            placeholder='Type here'
-            className='input w-full max-w-xs'
+            placeholder='search here'
+            className='focus:outline-0 focus:border-transparent border-red-700 rounded   w-full max-w-xs'
             onChange={handleSearch}
           />
         </div>
