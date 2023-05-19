@@ -94,10 +94,8 @@ const Header = () => {
                   className='dropdown-content menu shadow text-white roboto-font px-3 rounded-box w-[140px] flex justify-center py-3 border-2 border-red-500 bg-[#202020]'
                 >
                   <div className='pl-2 py-3 text-sm dark:text-white border-b-2 border-red-500'>
-                    <div>Bonnie Green</div>
-                    <div className='font-medium truncate'>
-                      name@flowbite.com
-                    </div>
+                    <div className='capitalize'>{user.displayName}</div>
+                    <div className='font-medium truncate'>{user?.email}</div>
                   </div>
                   <div
                     className='py-2 text-sm dark:text-gray-200'
@@ -105,7 +103,7 @@ const Header = () => {
                   >
                     <a
                       href='#'
-                      className='w-full pl-2 py-2 hover:bg-red-600 dark:hover:bg-red-600 dark:hover:text-white'
+                      className='block pl-2 py-2 hover:bg-red-600 dark:hover:bg-red-600 dark:hover:text-white'
                     >
                       Dashboard
                     </a>

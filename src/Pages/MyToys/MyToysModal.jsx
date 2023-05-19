@@ -2,14 +2,24 @@ import { Modal } from 'flowbite-react';
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { RxUpdate, RxTrash } from 'react-icons/rx';
-import { FaInfo } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import MyToysInfoModal from './MyToysInfoModal';
+
 const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
   const { user } = useContext(AuthContext);
-  const { name, email, price, pictureUrl, rating, details, subCategory, _id } =
-    sellerData;
-  console.log(sellerData);
+  const {
+    name,
+    email,
+    price,
+    pictureUrl,
+    rating,
+    details,
+    subCategory,
+    _id,
+    quantity,
+  } = sellerData;
+
 
   const [show, setShow] = useState(false);
   const onClick = () => setShow(true);
@@ -20,7 +30,6 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
@@ -48,6 +57,32 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
       })
       .catch((err) => console.log(err));
   };
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
+          method: 'DELETE',
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deleteCount) {
+              Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+              setLoadData(!loadData);
+            }
+          });
+      }
+    });
+  };
+
   const subCategories = [
     'Action Figures',
     'Roleplay Accessories',
@@ -60,11 +95,13 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
   ];
   return (
     <>
-      <div>
-        <button className='bg-sky-600 hover:bg-sky-700 mr-2 rounded-full text-white package-btn p-3'>
-          <FaInfo className='text-white rounded'></FaInfo>
-        </button>
-        <button className='bg-red-600 hover:bg-red-700 mr-2 rounded-full text-white package-btn p-3'>
+      <div className='flex'>
+        <MyToysInfoModal sellerData={sellerData}></MyToysInfoModal>
+
+        <button
+          className='bg-red-600 hover:bg-red-700 mr-2 rounded-full text-white package-btn p-3'
+          onClick={() => handleDelete(_id)}
+        >
           <RxTrash className='text-white rounded'></RxTrash>
         </button>
         <button
@@ -129,15 +166,15 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
                 <div className='w-full'>
                   <label className='label'>
                     <span className='label-text roboto-font font-bold'>
-                      Seller Name
+                      Quantity
                     </span>
                   </label>
                   <input
-                    type='text'
-                    placeholder='Type here'
-                    className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
-                    {...register('sellerName')}
-                    value={user.displayName}
+                    type='number'
+                    placeholder='1,2,3'
+                    className='input input-bordered font-bold w-full'
+                    {...register('quantity')}
+                    defaultValue={quantity || 1}
                   />
                 </div>
                 <div className='w-full'>
@@ -154,7 +191,9 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
                   >
                     {subCategories.map((subCate, i) => (
                       <>
-                        <option value={subCategory}>{subCategory}</option>
+                        <option value={subCategory} key={'defaultCategory' + 2}>
+                          {subCategory}
+                        </option>
                         <option key={'subCate' + i} value={subCate}>
                           {subCate}
                         </option>
@@ -169,15 +208,46 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
                     </span>
                   </label>
                   <input
-                    type='text'
+                    type='number'
                     placeholder='Toy rating'
                     className='input input-bordered font-bold w-full'
                     {...register('rating')}
                     defaultValue={rating}
+                    max={5}
+                    step={0.01}
                     required
                   />
                 </div>
+                <div className='w-full'>
+                  <label className='label'>
+                    <span className='label-text roboto-font font-bold'>
+                      Seller Name
+                    </span>
+                  </label>
+                  <input
+                    type='text'
+                    placeholder='Type here'
+                    className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
+                    {...register('sellerName')}
+                    value={user?.displayName}
+                  />
+                </div>
+                <div className='w-full mx-auto'>
+                  <label className='label'>
+                    <span className='label-text roboto-font font-bold'>
+                      Email
+                    </span>
+                  </label>
+                  <input
+                    type='Email'
+                    placeholder='Type here'
+                    className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
+                    {...register('email')}
+                    value={email}
+                  />
+                </div>
               </div>
+
               <div>
                 <div className='max-w-3xl mx-auto'>
                   <label className='label'>
@@ -194,20 +264,7 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
                     required
                   />
                 </div>
-                <div className='max-w-3xl mx-auto'>
-                  <label className='label'>
-                    <span className='label-text roboto-font font-bold'>
-                      Email
-                    </span>
-                  </label>
-                  <input
-                    type='Email'
-                    placeholder='Type here'
-                    className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
-                    {...register('email')}
-                    value={email}
-                  />
-                </div>
+
                 <div className='max-w-3xl mx-auto'>
                   <input
                     type='submit'

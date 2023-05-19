@@ -7,6 +7,7 @@ import Register from '../Pages/Register/Register';
 import AboutUs from '../Pages/AboutUs/AboutUs';
 import AddToys from '../Pages/AddToys/AddToys';
 import MyToys from '../Pages/MyToys/MyToys';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -35,12 +36,20 @@ const router = createBrowserRouter([
       },
       {
         path: '/addToys',
-        element: <AddToys></AddToys>,
+        element: (
+          <PrivateRoute>
+            <AddToys></AddToys>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/myToys',
-        element: <MyToys></MyToys>
-      }
+        element: (
+          <PrivateRoute>
+            <MyToys></MyToys>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

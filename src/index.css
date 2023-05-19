@@ -31,5 +31,13 @@
 }
 /*todo */
 .outletMinW {
-  min-height: calc(100vh-30px) !important;
+  min-height: calc(100vh - 698px) !important;
+}
+.categoryBanner {
+  background-image: url('https://images-eu.ssl-images-amazon.com/images/G/31/img19/Toys/Avengers/MainBanner_1242x350._CB1198675309_.png');
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.377);
+  background-blend-mode: multiply;
+  height: 300px;
 }

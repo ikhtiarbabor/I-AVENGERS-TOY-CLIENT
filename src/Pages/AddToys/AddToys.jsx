@@ -89,16 +89,14 @@ const AddToys = () => {
 
           <div className='w-full'>
             <label className='label'>
-              <span className='label-text roboto-font font-bold'>
-                Seller Name
-              </span>
+              <span className='label-text roboto-font font-bold'>Quantity</span>
             </label>
             <input
-              type='text'
+              type='number'
               placeholder='Type here'
-              className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
-              {...register('sellerName')}
-              value={name}
+              className='input input-bordered font-bold w-full'
+              {...register('Quantity')}
+              defaultValue={1}
             />
           </div>
           <div className='w-full'>
@@ -125,11 +123,38 @@ const AddToys = () => {
               <span className='label-text roboto-font font-bold'>Rating</span>
             </label>
             <input
-              type='text'
+              type='number'
               placeholder='Toy rating'
               className='input input-bordered font-bold w-full'
               {...register('rating')}
+              max={5}
               required
+            />
+          </div>
+          <div className='w-full'>
+            <label className='label'>
+              <span className='label-text roboto-font font-bold'>
+                Seller Name
+              </span>
+            </label>
+            <input
+              type='text'
+              placeholder='Type here'
+              className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
+              {...register('sellerName')}
+              value={name}
+            />
+          </div>
+          <div className='mx-auto w-full'>
+            <label className='label'>
+              <span className='label-text roboto-font font-bold'>Email</span>
+            </label>
+            <input
+              type='Email'
+              placeholder='Type here'
+              className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
+              {...register('email')}
+              value={email}
             />
           </div>
         </div>
@@ -146,18 +171,7 @@ const AddToys = () => {
               required
             />
           </div>
-          <div className='max-w-3xl mx-auto'>
-            <label className='label'>
-              <span className='label-text roboto-font font-bold'>Email</span>
-            </label>
-            <input
-              type='Email'
-              placeholder='Type here'
-              className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
-              {...register('email')}
-              value={email}
-            />
-          </div>
+
           <div className='max-w-3xl mx-auto'>
             <input
               type='submit'
