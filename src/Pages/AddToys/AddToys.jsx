@@ -4,14 +4,17 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 const AddToys = () => {
   const { user } = useContext(AuthContext);
+  const email = user?.email;
+  const name = user?.displayName;
   console.log(user);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) =>
-    fetch('http://localhost:5000/allToys', {
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch('https://i-avengers-toy-server.vercel.app/allToys', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -28,6 +31,7 @@ const AddToys = () => {
           });
         }
       });
+  };
   const subCategory = [
     'Action Figures',
     'Roleplay Accessories',
@@ -44,11 +48,13 @@ const AddToys = () => {
         <div className='grid md:grid-cols-2 max-w-3xl gap-y-2 gap-x-5 mx-auto'>
           <div className='w-full'>
             <label className='label'>
-              <span className='label-text roboto-font font-bold'>Name</span>
+              <span className='label-text roboto-font font-bold'>
+                Product Name
+              </span>
             </label>
             <input
               type='text'
-              placeholder='Type here'
+              placeholder='Product Name'
               className='input input-bordered font-bold w-full'
               {...register('name')}
               required
@@ -92,7 +98,7 @@ const AddToys = () => {
               placeholder='Type here'
               className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
               {...register('sellerName')}
-              value={user?.displayName}
+              value={name}
             />
           </div>
           <div className='w-full'>
@@ -149,7 +155,7 @@ const AddToys = () => {
               placeholder='Type here'
               className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
               {...register('email')}
-              value={user?.email}
+              value={email}
             />
           </div>
           <div className='max-w-3xl mx-auto'>

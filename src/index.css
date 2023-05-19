@@ -18,6 +18,9 @@
   .allContainer {
     @apply max-w-7xl mx-auto px-5 md:px-0;
   }
+  .package-btn span {
+    @apply rounded-full md:rounded-full;
+  }
 }
 .footBg {
   background: url(https://media.comicbook.com/wp-content/uploads/2012/04/avengers_background_8.jpg);

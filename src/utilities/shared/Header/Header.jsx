@@ -91,11 +91,47 @@ const Header = () => {
                 </div>
                 <div
                   tabIndex={0}
-                  className='dropdown-content menu shadow text-white roboto-font px-3 rounded-box w-[140px] flex justify-center py-3 bg-[#202020]'
+                  className='dropdown-content menu shadow text-white roboto-font px-3 rounded-box w-[140px] flex justify-center py-3 border-2 border-red-500 bg-[#202020]'
                 >
-                  <Link>Profile</Link>
-                  <Link>Dashboard</Link>
-                  <button onClick={handleLogout}>Log out</button>
+                  <div className='pl-2 py-3 text-sm dark:text-white border-b-2 border-red-500'>
+                    <div>Bonnie Green</div>
+                    <div className='font-medium truncate'>
+                      name@flowbite.com
+                    </div>
+                  </div>
+                  <div
+                    className='py-2 text-sm dark:text-gray-200'
+                    aria-labelledby='avatarButton'
+                  >
+                    <a
+                      href='#'
+                      className='w-full pl-2 py-2 hover:bg-red-600 dark:hover:bg-red-600 dark:hover:text-white'
+                    >
+                      Dashboard
+                    </a>
+
+                    <a
+                      href='#'
+                      className='block pl-2 py-2 hover:bg-red-600 dark:hover:bg-red-600 dark:hover:text-white'
+                    >
+                      Settings
+                    </a>
+
+                    <a
+                      href='#'
+                      className='block pl-2 py-2 hover:bg-red-600 dark:hover:bg-red-600 dark:hover:text-white'
+                    >
+                      Earnings
+                    </a>
+                  </div>
+                  <div className='py-1'>
+                    <button
+                      onClick={handleLogout}
+                      className='block pl-2 py-2 text-sm bg-red-500 hover:bg-red-600 dark:hover:bg-red-600 dark:text-gray-200 dark:hover:text-white w-full'
+                    >
+                      Sign out
+                    </button>
+                  </div>
                 </div>
               </div>
             </>
