@@ -5,8 +5,14 @@ import { RxUpdate, RxTrash } from 'react-icons/rx';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysInfoModal from './MyToysInfoModal';
+import { toast } from 'react-toastify';
 
-const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
+const MyToysModal = ({
+  sellerData,
+  setLoadData,
+  loadData,
+  sellersData,
+}) => {
   const { user } = useContext(AuthContext);
   const {
     name,
@@ -19,7 +25,6 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
     _id,
     quantity,
   } = sellerData;
-
 
   const [show, setShow] = useState(false);
   const onClick = () => setShow(true);
@@ -55,10 +60,14 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
           });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err) {
+          toast('Wow so easy !');
+        }
+      });
   };
 
-  const handleDelete = (_id) => {
+  const handleDelete = () => {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -74,9 +83,11 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deleteCount) {
+            console.log(data);
+            if (data.acknowledged) {
               Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
               setLoadData(!loadData);
+              console.log(sellersData, loadData);
             }
           });
       }
@@ -100,7 +111,7 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
 
         <button
           className='bg-red-600 hover:bg-red-700 mr-2 rounded-full text-white package-btn p-3'
-          onClick={() => handleDelete(_id)}
+          onClick={() => handleDelete()}
         >
           <RxTrash className='text-white rounded'></RxTrash>
         </button>
@@ -140,7 +151,7 @@ const MyToysModal = ({ sellerData, setLoadData, loadData }) => {
                   </label>
                   <input
                     type='url'
-                    placeholder='photo url'
+                    placeholder='https://photourl.com'
                     className='input input-bordered font-bold w-full'
                     {...register('pictureUrl')}
                     defaultValue={pictureUrl}

@@ -3,6 +3,7 @@ import logo from '../../../../public/logo.svg';
 import { FaBars } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import { Tooltip } from 'flowbite-react';
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const handleLogout = () => {
@@ -84,10 +85,12 @@ const Header = () => {
             <>
               <div className='dropdown dropdown-bottom dropdown-end'>
                 <div tabIndex={0} className=' m-1'>
-                  <div
-                    style={{ backgroundImage: `url(${user?.photoURL}` }}
-                    className={`rounded-full w-10 h-10 bg-cover bg-center border-2 border-blue-400`}
-                  ></div>
+                  <Tooltip content={user.displayName} animation={false}>
+                    <div
+                      style={{ backgroundImage: `url(${user?.photoURL}` }}
+                      className={`rounded-full w-10 h-10 bg-cover bg-center border-2 border-blue-400`}
+                    ></div>
+                  </Tooltip>
                 </div>
                 <div
                   tabIndex={0}

@@ -1,6 +1,8 @@
 import { Modal } from 'flowbite-react';
 import { useState } from 'react';
 import { FaInfo } from 'react-icons/fa';
+import Rating from 'react-rating';
+import { RxStarFilled, RxStar } from 'react-icons/rx';
 
 const MyToysInfoModal = ({ sellerData }) => {
   console.log(sellerData);
@@ -46,7 +48,21 @@ const MyToysInfoModal = ({ sellerData }) => {
                   <p className='roboto-font'>Rating :</p>
                 </div>
                 <div>
-                  <p>{rating || 3.5}</p>
+                  <p>
+                    <Rating
+                      placeholderRating={parseFloat(rating) || 3.5}
+                      emptySymbol={
+                        <RxStar className='text-yellow-300'></RxStar>
+                      }
+                      placeholderSymbol={
+                        <RxStarFilled className='text-yellow-300'></RxStarFilled>
+                      }
+                      fullSymbol={
+                        <RxStarFilled className='text-yellow-300'></RxStarFilled>
+                      }
+                      readonly
+                    />
+                  </p>
                 </div>
                 <div>
                   <p className='roboto-font'>sub Category :</p>

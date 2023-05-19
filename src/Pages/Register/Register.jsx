@@ -52,7 +52,7 @@ const Register = () => {
                   </label>
                   <input
                     type='url'
-                    placeholder='Photo URL'
+                    placeholder='https://photourl.com'
                     className='input input-bordered'
                     name='photo'
                     required
