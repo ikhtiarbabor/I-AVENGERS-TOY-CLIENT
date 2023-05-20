@@ -28,7 +28,7 @@ const Register = () => {
           name: result.user.displayName,
           designation,
         };
-        fetch('http://localhost:5000/allToys', {
+        fetch('https://i-avengers-toy-server.vercel.app/allToys', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

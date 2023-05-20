@@ -30,7 +30,7 @@ const MyToysModal = ({ sellerData, setLoadData, loadData, sellersData }) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/allToys/${_id}`, {
+    fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -73,7 +73,7 @@ const MyToysModal = ({ sellerData, setLoadData, loadData, sellersData }) => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allToys/${_id}`, {
+        fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

@@ -1,10 +1,9 @@
-
-import ProductDetails from '../ProductDetails/ProductDetails';
+import SubCategory from '../Home/SubCategory/SubCategory';
 
 const AboutUs = () => {
   return (
     <section>
-      <ProductDetails></ProductDetails>
+      <SubCategory></SubCategory>
     </section>
   );
 };

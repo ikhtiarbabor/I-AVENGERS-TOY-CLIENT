@@ -38,7 +38,7 @@ const Banner = () => {
                 I avengers Toy
               </h2>
               <p className='md:text-7xl text-3xl py-3'>BUY, PLAY, ENJOY!</p>
-              <HashLink smooth to='/#'>
+              <HashLink smooth to='/#getStarted'>
                 <button className='btn bg-white text-red-700 hover:bg-slate-300 md:text-sm text-xs'>
                   Get Started
                 </button>
@@ -58,7 +58,7 @@ const Banner = () => {
                 I avengers Toy
               </h2>
               <p className='md:text-7xl text-3xl py-3'>BUY, PLAY, ENJOY!</p>
-              <HashLink smooth to='/#'>
+              <HashLink smooth to='/#getStarted'>
                 <button className='btn bg-white text-red-700 hover:bg-slate-300 md:text-sm text-xs'>
                   Get Started
                 </button>
@@ -78,7 +78,7 @@ const Banner = () => {
                 I avengers Toy
               </h2>
               <p className='md:text-7xl text-3xl py-3'>BUY, PLAY, ENJOY!</p>
-              <HashLink smooth to='/#'>
+              <HashLink smooth to='/#getStarted'>
                 <button className='btn bg-white text-red-700 hover:bg-slate-300 md:text-sm text-xs'>
                   Get Started
                 </button>
@@ -98,7 +98,7 @@ const Banner = () => {
                 I avengers Toy
               </h2>
               <p className='md:text-7xl text-3xl py-3'>BUY, PLAY, ENJOY!</p>
-              <HashLink smooth to='/#'>
+              <HashLink smooth to='/#getStarted'>
                 <button className='btn bg-white text-red-700 hover:bg-slate-300 md:text-sm text-xs'>
                   Get Started
                 </button>
@@ -118,7 +118,7 @@ const Banner = () => {
                 I avengers Toy
               </h2>
               <p className='md:text-7xl text-3xl py-3'>BUY, PLAY, ENJOY!</p>
-              <HashLink smooth to='/#'>
+              <HashLink smooth to='/#getStarted'>
                 <button className='btn bg-white text-red-700 hover:bg-slate-300 md:text-sm text-xs'>
                   Get Started
                 </button>

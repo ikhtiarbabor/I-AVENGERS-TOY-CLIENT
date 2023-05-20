@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const banner = 'https://www.shopdisney.in/media/June/MarvelFranchiseBanner.jpg';
-const PopularProduct = () => {
-  const [toys, setToys] = useState([]);
+const PopularProduct = ({ productData }) => {
+  //   const [toys, setToys] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:5000/newArrives')
-      .then((response) => response.json())
-      .then((data) => setToys(data));
-  }, []);
+  //   useEffect(() => {
+  //     fetch('https://i-avengers-toy-server.vercel.app/newArrives')
+  //       .then((response) => response.json())
+  //       .then((data) => setToys(data));
+  //   }, []);
+  const handleAddCart = () => {
+    toast('🛒 you added this item!');
+  };
 
-  console.log(toys);
+    console.log(productData);
   return (
     <section
       className='bg-cover bg-center bg-repeat-no my-14 pb-12'
@@ -22,12 +26,12 @@ const PopularProduct = () => {
         backgroundAttachment: 'fixed',
       }}
     >
-      <h2 className='text-center text-white md:text-5xl text-3xl py-5 underline'>
+      <h2 className='text-center text-white md:text-5xl text-3xl py-5 underline capitalize'>
         Popular Toys
       </h2>
 
       <div className='md:grid md:grid-cols-4 allContainer gap-5'>
-        {toys.map((toy) => (
+        {productData.map((toy) => (
           <>
             <div className='flex flex-col items-center justify-center my-5 md:my-0'>
               <div className='max-w-md w-full  bg-gray-900 shadow-lg rounded-xl p-6'>
@@ -36,7 +40,7 @@ const PopularProduct = () => {
                     <img
                       src={toy.pictureUrl}
                       alt='Just a flower'
-                      className=' w-full   object-fill  rounded-2xl'
+                      className=' max-h-[171px] w-full object-fill  rounded-2xl'
                     />
                   </div>
                   <div className='flex-auto justify-evenly'>
@@ -58,8 +62,8 @@ const PopularProduct = () => {
                         <h2 className='text-lg mr-auto cursor-pointer text-gray-200 hover:text-red-500 truncate '>
                           {toy.name}
                         </h2>
-                        <div className='flex items-center bg-green-400 text-white text-xs px-2 py-1 ml-3 rounded-lg'>
-                          QUANTITY :{toy.quantity}
+                        <div className='flex items-center w-[50px] bg-white text-red-500 text-xs px-2 py-1 ml-3 rounded-lg'>
+                          Q :{toy.quantity || 1}
                         </div>
                       </div>
                     </div>
@@ -68,7 +72,10 @@ const PopularProduct = () => {
                     </div>
 
                     <div className='flex space-x-2 text-sm font-medium justify-start'>
-                      <button className='transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-red-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-red-600 '>
+                      <button
+                        className='transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-red-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-red-600 '
+                        onClick={handleAddCart}
+                      >
                         <span>Add Cart</span>
                       </button>
                       <Link to={`/toyDetails/${toy._id}`}>

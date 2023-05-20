@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [color, setColor] = useState('ol');
-  const [url, setUrl] = useState(['http://localhost:5000/allToys']);
+  const [url, setUrl] = useState([
+    'https://i-avengers-toy-server.vercel.app/allToys',
+  ]);
 
   useEffect(() => {
     fetch(url)
@@ -16,18 +18,22 @@ const AllToys = () => {
   const handleSort = (color) => {
     if (color === 'ol') {
       setColor('ol');
-      setUrl('http://localhost:5000/allToys');
+      setUrl('https://i-avengers-toy-server.vercel.app/allToys');
     } else if (color === 'lth') {
       setColor('lth');
-      setUrl(`http://localhost:5000/allToys?ascending=true`);
+      setUrl(`https://i-avengers-toy-server.vercel.app/allToys?ascending=true`);
     } else {
       setColor('htl');
-      setUrl(`http://localhost:5000/allToys?ascending=false`);
+      setUrl(
+        `https://i-avengers-toy-server.vercel.app/allToys?ascending=false`
+      );
     }
   };
   const handleSearch = (e) => {
     console.log(e.target.value);
-    setUrl(`http://localhost:5000/allToys?search=${e.target.value}`);
+    setUrl(
+      `https://i-avengers-toy-server.vercel.app/allToys?search=${e.target.value}`
+    );
   };
   return (
     <>
@@ -95,7 +101,12 @@ const AllToys = () => {
                     <td>{toy.subCategory}</td>
                     <td className='text-red-600'>${toy.price}</td>
                     <td>
-                      <Link className='btn bg-red-700 text-white border-0' to={`/toyDetails/${toy._id}`}>Details</Link>
+                      <Link
+                        className='btn bg-red-700 text-white border-0'
+                        to={`/toyDetails/${toy._id}`}
+                      >
+                        Details
+                      </Link>
                     </td>
                   </tr>
                 </>

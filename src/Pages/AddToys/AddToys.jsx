@@ -18,7 +18,7 @@ const AddToys = () => {
     data.rating = parseFloat(data.rating);
     data.price = parseFloat(data.price);
     data.quantity = parseFloat(data.quantity);
-    fetch('http://localhost:5000/allToys', {
+    fetch('https://i-avengers-toy-server.vercel.app/allToys', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
