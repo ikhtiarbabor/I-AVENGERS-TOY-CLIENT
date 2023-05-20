@@ -1,9 +1,10 @@
-import CategoryBanner from '../../utilities/shared/CategoryBanner/CategoryBanner';
+
+import ProductDetails from '../ProductDetails/ProductDetails';
 
 const AboutUs = () => {
   return (
     <section>
-      <CategoryBanner>about us</CategoryBanner>
+      <ProductDetails></ProductDetails>
     </section>
   );
 };

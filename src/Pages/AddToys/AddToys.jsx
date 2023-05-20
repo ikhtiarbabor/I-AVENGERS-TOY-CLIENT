@@ -14,6 +14,10 @@ const AddToys = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
+    data.rating = parseFloat(data.rating);
+    data.price = parseFloat(data.price);
+    data.quantity = parseFloat(data.quantity);
     fetch('http://localhost:5000/allToys', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -150,6 +154,7 @@ const AddToys = () => {
                 value={name}
               />
             </div>
+
             <div className='mx-auto w-full'>
               <label className='label'>
                 <span className='label-text roboto-font font-bold'>Email</span>
@@ -164,6 +169,18 @@ const AddToys = () => {
             </div>
           </div>
           <div>
+            <div className='mx-auto max-w-3xl'>
+              <label className='label'>
+                <span className='label-text roboto-font font-bold'>Date</span>
+              </label>
+              <input
+                type='text'
+                placeholder='Type here'
+                className='input input-bordered font-bold w-full bg-gray-200 focus:outline-0'
+                {...register('publishDate')}
+                value={new Date().toLocaleDateString('us-asian')}
+              />
+            </div>
             <div className='max-w-3xl mx-auto'>
               <label className='label'>
                 <span className='label-text roboto-font font-bold'>

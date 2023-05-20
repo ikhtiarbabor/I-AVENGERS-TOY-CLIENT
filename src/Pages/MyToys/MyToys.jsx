@@ -21,18 +21,23 @@ const MyToys = () => {
       {sellersData.length === 0 ? (
         <NoToyAdded />
       ) : (
-        <section className='allContainer grid md:grid-cols-4 gap-6 py-7'>
-          {sellersData.map((sellerData) => (
-            <MyToysCard
-              key={sellerData._id}
-              sellerData={sellerData}
-              setLoadData={setLoadData}
-              loadData={loadData}
-              setSellerData={setSellerData}
-              sellersData={sellersData}
-            ></MyToysCard>
-          ))}
-        </section>
+        <>
+          <h2 className='text-center roboto-font py-4 text-4xl'>
+            Your Total Toys : {sellersData.length}
+          </h2>
+          <section className='allContainer grid md:grid-cols-4 gap-6 py-7'>
+            {sellersData.map((sellerData) => (
+              <MyToysCard
+                key={sellerData._id}
+                sellerData={sellerData}
+                setLoadData={setLoadData}
+                loadData={loadData}
+                setSellerData={setSellerData}
+                sellersData={sellersData}
+              ></MyToysCard>
+            ))}
+          </section>
+        </>
       )}
     </div>
   );

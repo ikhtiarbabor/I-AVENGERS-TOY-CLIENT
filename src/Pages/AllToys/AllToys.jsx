@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CategoryBanner from '../../utilities/shared/CategoryBanner/CategoryBanner';
+import { Link } from 'react-router-dom';
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -94,7 +95,7 @@ const AllToys = () => {
                     <td>{toy.subCategory}</td>
                     <td className='text-red-600'>${toy.price}</td>
                     <td>
-                      <button>Details</button>
+                      <Link className='btn bg-red-700 text-white border-0' to={`/toyDetails/${toy._id}`}>Details</Link>
                     </td>
                   </tr>
                 </>
