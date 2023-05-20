@@ -14,14 +14,14 @@ const Footer = () => {
   return (
     <footer className=''>
       <div className='bg-[#202020]'>
-        <div className='flex items-center allContainer'>
+        <div className='md:flex items-center allContainer'>
           <div className='md:w-1/2 footBg'>
             <div className='w-1/2 mx-auto font-bold'>
               {' '}
               <img src={logo} alt='' className=' block' />
             </div>
           </div>
-          <div className='w-1/2 font-bold text-center text-white'>
+          <div className='md:w-1/2 font-bold text-center text-white'>
             <p className='text-red-600 font-bold text-4xl'>Toys</p>
             <h2 className='roboto-font text-white font-bold text-5xl'>
               BUY, PLAY, ENJOY!

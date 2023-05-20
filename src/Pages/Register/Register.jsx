@@ -5,7 +5,7 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../Firebase/firebase.config';
 
 const Register = () => {
-  const { signUp} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
   const auth = getAuth(app);
 
   const handleLogin = (e) => {
@@ -15,14 +15,28 @@ const Register = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     const name = form.name.value;
+    const designation = form.designation.value;
     signUp(email, password)
-      .then((res) => {
-        res.photoURL = photo;
+      .then((result) => {
+        result.photoURL = photo;
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo,
         });
-
+        const newUser = {
+          email: result.user.email,
+          name: result.user.displayName,
+          designation,
+        };
+        fetch('http://localhost:5000/allToys', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
       })
       .catch((err) => err.message);
   };

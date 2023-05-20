@@ -8,7 +8,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [sellersData, setSellerData] = useState([]);
   const [loadData, setLoadData] = useState(false);
-  const url = `https://i-avengers-toy-server.vercel.app/allToys?email=${user?.email}&sellerName=${user.displayName}`;
+  const url = `http://localhost:5000/allToys?email=${user?.email}&sellerName=${user.displayName}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

@@ -14,7 +14,7 @@ const AddToys = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch('https://i-avengers-toy-server.vercel.app/allToys', {
+    fetch('http://localhost:5000/allToys', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -97,9 +97,9 @@ const AddToys = () => {
               </label>
               <input
                 type='number'
-                placeholder='Type here'
+                placeholder='Quantity'
                 className='input input-bordered font-bold w-full'
-                {...register('Quantity')}
+                {...register('quantity')}
                 defaultValue={1}
               />
             </div>

@@ -98,7 +98,9 @@ const Header = () => {
                 >
                   <div className='pl-2 py-3 text-sm dark:text-white border-b-2 border-red-500'>
                     <div className='capitalize'>{user.displayName}</div>
-                    <div className='font-medium truncate'>{user?.email}</div>
+                    <div className='font-medium truncate'>
+                      <small className='text-xs'>{user?.email}</small>
+                    </div>
                   </div>
                   <div
                     className='py-2 text-sm dark:text-gray-200'

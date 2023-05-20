@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../../utilities/shared/Header/Header';
-import Footer from '../../utilities/shared/Footer/Footer';
+import Header from '../utilities/shared/Header/Header';
+import Footer from '../utilities/shared/Footer/Footer';
 
-const Home = () => {
+const MainLayout = () => {
   return (
     <>
       <Header></Header>
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainLayout;

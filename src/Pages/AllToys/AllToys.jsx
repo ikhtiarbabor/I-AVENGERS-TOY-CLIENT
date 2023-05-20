@@ -4,9 +4,7 @@ import CategoryBanner from '../../utilities/shared/CategoryBanner/CategoryBanner
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [color, setColor] = useState('ol');
-  const [url, setUrl] = useState([
-    'https://i-avengers-toy-server.vercel.app/allToys',
-  ]);
+  const [url, setUrl] = useState(['http://localhost:5000/allToys']);
 
   useEffect(() => {
     fetch(url)
@@ -17,22 +15,18 @@ const AllToys = () => {
   const handleSort = (color) => {
     if (color === 'ol') {
       setColor('ol');
-      setUrl('https://i-avengers-toy-server.vercel.app/allToys');
+      setUrl('http://localhost:5000/allToys');
     } else if (color === 'lth') {
       setColor('lth');
-      setUrl(`https://i-avengers-toy-server.vercel.app/allToys?ascending=true`);
+      setUrl(`http://localhost:5000/allToys?ascending=true`);
     } else {
       setColor('htl');
-      setUrl(
-        `https://i-avengers-toy-server.vercel.app/allToys?ascending=false`
-      );
+      setUrl(`http://localhost:5000/allToys?ascending=false`);
     }
   };
   const handleSearch = (e) => {
     console.log(e.target.value);
-    setUrl(
-      `https://i-avengers-toy-server.vercel.app/allToys?search=${e.target.value}`
-    );
+    setUrl(`http://localhost:5000/allToys?search=${e.target.value}`);
   };
   return (
     <>

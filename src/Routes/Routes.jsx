@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../Pages/Home/Home';
 import AllToys from '../Pages/AllToys/AllToys';
 import Blog from '../Pages/Blog/Blog';
 import Login from '../Pages/Login/Login';
@@ -8,12 +7,19 @@ import AboutUs from '../Pages/AboutUs/AboutUs';
 import AddToys from '../Pages/AddToys/AddToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import PrivateRoute from './PrivateRoute';
+import ReviewUs from '../Pages/Home/Reviews/ReviewUs';
+import MainLayout from '../Layout/MainLayout';
+import Home from '../Pages/Home/Home/Home';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home></Home>,
+    element: <MainLayout></MainLayout>,
     children: [
+      {
+        path: '/',
+        element:<Home></Home>
+      },
       {
         path: '/allToys',
         element: <AllToys></AllToys>,
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
             <MyToys></MyToys>
           </PrivateRoute>
         ),
+      },
+      {
+        path: '/test',
+        element: <ReviewUs></ReviewUs>,
       },
     ],
   },

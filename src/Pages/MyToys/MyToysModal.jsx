@@ -7,12 +7,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysInfoModal from './MyToysInfoModal';
 import { toast } from 'react-toastify';
 
-const MyToysModal = ({
-  sellerData,
-  setLoadData,
-  loadData,
-  sellersData,
-}) => {
+const MyToysModal = ({ sellerData, setLoadData, loadData, sellersData }) => {
   const { user } = useContext(AuthContext);
   const {
     name,
@@ -35,7 +30,7 @@ const MyToysModal = ({
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
+    fetch(`http://localhost:5000/allToys/${_id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -78,7 +73,7 @@ const MyToysModal = ({
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://i-avengers-toy-server.vercel.app/allToys/${_id}`, {
+        fetch(`http://localhost:5000/allToys/${_id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
