@@ -5,7 +5,6 @@ import Rating from 'react-rating';
 import { RxStarFilled, RxStar } from 'react-icons/rx';
 
 const MyToysInfoModal = ({ sellerData }) => {
-  console.log(sellerData);
   const { pictureUrl, name, subCategory, rating, details, quantity, price } =
     sellerData;
 

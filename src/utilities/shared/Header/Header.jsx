@@ -84,7 +84,7 @@ const Header = () => {
             <>
               <div className='dropdown dropdown-bottom dropdown-end'>
                 <div tabIndex={0} className=' m-1'>
-                  <Tooltip content={user.displayName} animation={false}>
+                  <Tooltip content={user?.displayName} animation={false}>
                     <div
                       style={{ backgroundImage: `url(${user?.photoURL}` }}
                       className={`rounded-full w-10 h-10 bg-cover bg-center border-2 border-blue-400`}
@@ -96,7 +96,7 @@ const Header = () => {
                   className='dropdown-content menu shadow text-white roboto-font px-3 rounded-box w-[140px] flex justify-center py-3 border-2 border-red-500 bg-[#202020]'
                 >
                   <div className='pl-2 py-3 text-sm dark:text-white border-b-2 border-red-500'>
-                    <div className='capitalize'>{user.displayName}</div>
+                    <div className='capitalize'>{user?.displayName}</div>
                     <div className='font-medium truncate'>
                       <small className='text-xs'>{user?.email}</small>
                     </div>
