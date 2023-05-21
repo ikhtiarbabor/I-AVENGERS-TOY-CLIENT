@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import logo from '../../../public/ironman.svg';
+
 const NoToyAdded = () => {
   return (
     <section className='allContainer'>
       <div className='w-1/2 mx-auto text-center py-9 my-9'>
-        <img src={logo} alt='' className='mx-auto block' />
+        <img
+          src='https://i.ibb.co/hL9kFp4/Sorry.png'
+          alt=''
+          className='mx-auto block max-w-[200px]'
+        />
         <h1 className='md:text-5xl roboto-font bold text-red-500 py-3'>
           You do not have any toy yet ❌
         </h1>

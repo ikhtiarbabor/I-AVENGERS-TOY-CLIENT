@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../../../public/logo.svg';
 import { FaBars } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
@@ -49,8 +48,12 @@ const Header = () => {
               </NavLink>
             </div>
           </div>
-          <Link className='btn btn-ghost normal-case text-xl w-[80px] mb-2'>
-            <img src={logo} alt='' className='w-full' />
+          <Link className='btn btn-ghost normal-case text-xl w-full mb-2  justify-start'>
+            <img
+              src='https://i.ibb.co/HrVcxj2/Logo.png'
+              alt=''
+              className='w-[90px]'
+            />
           </Link>
         </div>
         <div className='navbar-center hidden lg:flex text-white'>

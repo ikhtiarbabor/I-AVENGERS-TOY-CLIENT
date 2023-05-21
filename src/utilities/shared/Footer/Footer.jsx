@@ -1,5 +1,3 @@
-import logo from '../../../../public/logo.svg';
-import Flogo from '../../../../public/FooterLogo.svg';
 import {
   FaFacebookF,
   FaTwitterSquare,
@@ -18,7 +16,11 @@ const Footer = () => {
           <div className='md:w-1/2 footBg'>
             <div className='w-1/2 mx-auto font-bold'>
               {' '}
-              <img src={logo} alt='' className=' block' />
+              <img
+                src='https://i.ibb.co/HrVcxj2/Logo.png'
+                alt=''
+                className=' block '
+              />
             </div>
           </div>
           <div className='md:w-1/2 font-bold text-center text-white'>
@@ -33,7 +35,11 @@ const Footer = () => {
       <div className='bg-[#151515] py-5'>
         <div className='allContainer grid grid-cols-4 justify-center'>
           <div>
-            <img src={Flogo} alt='' />
+            <img
+              src='https://i.ibb.co/195Npch/Ait.png'
+              alt=''
+              className='max-w-[200px]'
+            />
           </div>
           <div className='text-white flex flex-col justify-between roboto-font font-bold'>
             <p>ABOUT US</p>
