@@ -1,10 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import CategoryBanner from '../../utilities/shared/CategoryBanner/CategoryBanner';
 
 const Login = () => {
   const { login, user } = useContext(AuthContext);
+  const [error, setError] = useState('');
   const location = useLocation();
   const redirect = useNavigate();
   const from = location?.state?.from?.pathname || '/';
@@ -18,9 +19,22 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         console.log(res.user);
-        redirect(from,{replace:true});
+        redirect(from, { replace: true });
       })
-      .catch((err) => err.message);
+      .catch((err) => {
+        if (err.message === 'Firebase: Error (auth/wrong-password).') {
+          return setError('Wrong password');
+        } else if (
+          err.message ===
+          'Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).'
+        ) {
+          setError(
+            'Access to this account has been temporarily disabled due to many failed login attempts'
+          );
+        } else {
+          return setError(err.message);
+        }
+      });
   };
 
   return (
@@ -80,6 +94,7 @@ const Login = () => {
                             Forgot password?
                           </a>
                         </label>
+                        <p className='text-xs text-red-500'>{error}</p>
                       </div>
                       <div className='form-control mt-6'>
                         <button className='btn bg-red-600 hover:bg-red-700 border-0'>
