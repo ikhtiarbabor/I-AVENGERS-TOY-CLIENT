@@ -1,16 +1,16 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const banner = 'https://www.shopdisney.in/media/June/MarvelFranchiseBanner.jpg';
-const PopularProduct = ({ productData }) => {
-  //   const [toys, setToys] = useState([]);
+const PopularProduct = () => {
+    const [productData, SetProductData] = useState([]);
 
-  //   useEffect(() => {
-  //     fetch('https://i-avengers-toy-server.vercel.app/newArrives')
-  //       .then((response) => response.json())
-  //       .then((data) => setToys(data));
-  //   }, []);
+    useEffect(() => {
+      fetch('https://i-avengers-toy-server.vercel.app/newArrives')
+        .then((response) => response.json())
+        .then((data) => SetProductData(data));
+    }, []);
   const handleAddCart = () => {
     toast('🛒 you added this item!');
   };

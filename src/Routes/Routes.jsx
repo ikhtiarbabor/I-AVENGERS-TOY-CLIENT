@@ -3,7 +3,7 @@ import AllToys from '../Pages/AllToys/AllToys';
 import Blog from '../Pages/Blog/Blog';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
-import AboutUs from '../Pages/AboutUs/AboutUs';
+
 import AddToys from '../Pages/AddToys/AddToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import PrivateRoute from './PrivateRoute';
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader:()=>fetch('https://i-avengers-toy-server.vercel.app/newArrives')
+      
       },
       {
         path: '/allToys',
@@ -38,10 +38,7 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>,
       },
-      {
-        path: '/aboutUs',
-        element: <AboutUs></AboutUs>,
-      },
+     
       {
         path: '/addToys',
         element: (

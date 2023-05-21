@@ -55,32 +55,43 @@
     -2px -2px 0 #fff;
 }
 
-
 /* ///// */
 .categoryHover {
-  --m:
-    radial-gradient(circle farthest-side at right,#000 99%,#0000) 
-      0 100%/46% 92% no-repeat,
-    radial-gradient(circle farthest-side at left ,#000 99%,#0000) 
-      100% 0/46% 92% no-repeat;
+  --m: radial-gradient(circle farthest-side at right, #000 99%, #0000) 0 100%/46%
+      92% no-repeat,
+    radial-gradient(circle farthest-side at left, #000 99%, #0000) 100% 0/46%
+      92% no-repeat;
   -webkit-mask: var(--m);
-          mask: var(--m);
-  filter: grayscale(.5);
-  transition: .3s linear;
+  mask: var(--m);
+  filter: grayscale(0.5);
+  transition: 0.3s linear;
   cursor: pointer;
 }
 .categoryHover:hover {
-  -webkit-mask-position: 7.5% 50%,92.5% 50%;
-          mask-position: 7.5% 50%,92.5% 50%;
+  -webkit-mask-position: 7.5% 50%, 92.5% 50%;
+  mask-position: 7.5% 50%, 92.5% 50%;
   filter: grayscale(0);
 }
 
-/* body {
-  margin: 0;
+.awssld__container,
+.awssld-box {
+  height: 560px !important;
+  padding: 0 !important;
+}
 
-  display: grid;
-  height: 100vh;
-  grid-auto-flow :column;
-  place-content: center;
-  gap: 40px;
-} */
+.awssld__timer--animated,
+.awssld__timer {
+  background-color: transparent !important;
+}
+
+.awssld__content {
+  transition: 0.06s ease-in-out !important;
+  height: 560px !important;
+}
+.text-hover {
+  display: none;
+  transition: 0.06s ease-in-out !important;
+}
+.awssld__content:hover .text-hover {
+  display: block;
+}

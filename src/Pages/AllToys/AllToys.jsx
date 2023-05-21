@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [color, setColor] = useState('ol');
-  const [url, setUrl] = useState([
-    'https://i-avengers-toy-server.vercel.app/allToys',
-  ]);
+  const [url, setUrl] = useState(
+    'https://i-avengers-toy-server.vercel.app/allToys'
+  );
 
   useEffect(() => {
-    fetch(url)
+    console.log(url);
+    fetch('http://localhost:5000/allToys')
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [url]);

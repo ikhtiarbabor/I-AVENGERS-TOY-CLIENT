@@ -74,10 +74,6 @@ const Header = () => {
             <NavLink className='mx-2' to='/blog' tabIndex={0}>
               Blog
             </NavLink>
-
-            <NavLink to='/aboutUs' className='mx-2'>
-              About Us
-            </NavLink>
           </div>
         </div>
         <div className='navbar-end'>
